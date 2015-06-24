@@ -1,0 +1,35 @@
+{
+  "name": "personalsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -c-1 -p3030"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terimyaki/terimyaki.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terimyaki/terimyaki.github.io/issues"
+  },
+  "homepage": "https://github.com/terimyaki/terimyaki.github.io#readme",
+  "dependencies": {
+    "browserify": "^10.2.3",
+    "font-awesome": "^4.3.0",
+    "gulp": "^3.9.0",
+    "jquery": "^2.1.4",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "gulp-eslint": "^0.14.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.1"
+  }
+}

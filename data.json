@@ -1,0 +1,192 @@
+{
+    "skills": [
+        {
+            "name" : "languages",
+            "list" : [
+                {
+                    "name" : "Javascript",
+                    "rating": 4
+                }
+            ]
+        },
+        {
+            "name" : "frontend",
+            "list" : [
+                {
+                    "name" : "AngularJs",
+                    "rating" : 4
+                },
+                {
+                    "name" : "JQuery",
+                    "rating" : 4
+                },
+                {
+                    "name" : "HTML5Canvas",
+                    "rating" : 2
+                }
+            ]
+        },
+        {
+            "name" : "backend",
+            "list" : [
+                {
+                    "name" : "Node/Express",
+                    "rating" : 4
+                },
+                {
+                    "name" : "MongoDB/Mongoose",
+                    "rating" : 4
+                },
+                {
+                    "name" : "Firebase",
+                    "rating" : 3
+                }
+            ]
+        },
+        {
+            "name" : "testing",
+            "list" : [
+                {
+                    "name" : "Jasmine",
+                    "rating" : 3
+                },
+                {
+                    "name" : "Mocha/Chai",
+                    "rating" : 3
+                }
+            ]
+        },
+        {
+            "name" : "build",
+            "list" : [
+                {
+                    "name" : "Gulp",
+                    "rating" : 4
+                },
+                {
+                    "name" : "Sass",
+                    "rating" : 4
+                },
+                {
+                    "name" : "Grunt",
+                    "rating" : 2
+                }
+            ]
+        },
+        {
+            "name" : "tools",
+            "list" : [
+                {
+                    "name" : "Ionic",
+                    "rating" : 3
+                },
+                {
+                    "name" : "Bluebird",
+                    "rating" : 3
+                },
+                {
+                    "name" : "Chrome Extension",
+                    "rating" : 3
+                },
+                {
+                    "name" : "Socket.io",
+                    "rating" : 2
+                },
+                {
+                    "name" : "Tessel",
+                    "rating" : 2
+                }
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name" : "1,2,3 Freeze",
+            "image": "",
+            "date": "October 2014",
+            "link": "http://terimyaki.github.io/123Freeze",
+            "description": "",
+            "tech": [
+                "Vanilla Js",
+                "HTML5 Canvas"
+            ]
+        },
+        {
+            "name" : "ChoppedCode",
+            "image": "",
+            "date": "January 2015",
+            "link": "https://github.com/terimyaki/choppedCode",
+            "description": "",
+            "tech": [
+                "Cheerio",
+                "AngularJs",
+                "Node/Express",
+                "MongoDB/Mongoose"
+            ]
+        },
+        {
+            "name" : "Note In a Bottle",
+            "image": "",
+            "date": "March 2015",
+            "link": "https://github.com/sanghun89/SS-Hackathon",
+            "description": "",
+            "tech": [
+                "Tone.Js",
+                "Socket.io",
+                "JQuery",
+                "Node/Express",
+                "MongoDB/Mongoose"
+            ]
+        },
+        {
+            "name" : "The Bazaar",
+            "image": "",
+            "date": "April 2015",
+            "link": "https://github.com/iandownie/stackstore",
+            "description": "",
+            "tech": [
+                "AngularJs",
+                "Node/Express",
+                "MongoDB/Mongoose"
+            ]
+        },
+        {
+            "name" : "Cha-Ching",
+            "image": "",
+            "date": "April 2015",
+            "link": "https://github.com/terimyaki/cha-ching",
+            "description": "",
+            "tech": [
+                "Firebase",
+                "Chrome Extension",
+                "AngularJs",
+                "Node/Express"
+            ]
+        },
+        {
+            "name" : "Mide",
+            "image": "",
+            "date": "May 2015",
+            "link": "https://github.com/RichardBansal/mide",
+            "description": "",
+            "tech": [
+                "Ionic",
+                "Jasmine",
+                "AngularJs",
+                "Node/Express",
+                "MongoDB/Mongoose"
+            ]
+        }
+    ],
+    "contact": {
+        "github": "https://github.com/terimyaki",
+        "linkedin": "https://www.linkedin.com/in/codechef",
+        "email": "tonyli42w@gmail.com",
+        "phone": "917-232-8233"
+    },
+    "info": {
+        "name": "Tony Li",
+        "description": "Fullstack Developer, Code Chef",
+        "image" : "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAJrAAAAJDNkOGRhZGM2LTRlNmQtNDJkMy1iMTJkLTVmYWNmM2IwN2RhOA.jpg"
+    }
+}
