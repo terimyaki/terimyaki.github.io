@@ -9237,10 +9237,10 @@ Layout.prototype.buildInfo = function (node) {
 
 Layout.prototype.buildContact = function (node) {
 	var icons = {
-		github: 'fa fa-github-alt',
-		linkedin: 'fa fa-linkedin',
-		email: 'fa fa-envelope',
-		phone: 'fa fa-phone'
+		github: 'fa fa-github-alt fa-lg',
+		linkedin: 'fa fa-linkedin fa-lg',
+		email: 'fa fa-envelope fa-lg',
+		phone: 'fa fa-phone fa-lg'
 	};
 
 	var types = Object.keys(this.data.contact);
@@ -9288,7 +9288,7 @@ Layout.prototype.buildProjects = function (node) {
 		var container = $(document.createElement('div')).addClass('project');
 		var title = $(document.createElement('h3')).addClass('title').text(project.name);
 		var link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link);
-		var image = $(document.createElement('img')).addClass('src', project.image);
+		var image = $(document.createElement('img')).attr('src', project.image);
 		var description = $(document.createElement('p')).addClass('description').text(project.description);
 		var tech = $(document.createElement('div'));
 		project.tech.forEach(function (name) {
