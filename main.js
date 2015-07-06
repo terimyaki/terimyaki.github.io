@@ -24,10 +24,10 @@ Layout.prototype.buildInfo = function(node){
 
 Layout.prototype.buildContact = function(node){
 	var icons = {
-		github : 'fa fa-github-alt fa-lg',
-		linkedin : 'fa fa-linkedin fa-lg',
-		email : 'fa fa-envelope fa-lg',
-		phone : 'fa fa-phone fa-lg'
+		github : 'fa fa-github-alt',
+		linkedin : 'fa fa-linkedin',
+		email : 'fa fa-envelope',
+		phone : 'fa fa-phone'
 	};
 
 	var types = Object.keys(this.data.contact);

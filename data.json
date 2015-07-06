@@ -107,7 +107,6 @@
             "link": "http://terimyaki.github.io/123Freeze",
             "description": "A button-mashing game where you get points by stopping your number on the target number.",
             "tech": [
-                "Vanilla Js",
                 "HTML5 Canvas"
             ]
         },

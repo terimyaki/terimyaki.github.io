@@ -20,7 +20,7 @@
 
 article {
 	width : auto;
-	// height : 100vh;
+	height : 100vh;
 	// float: left;
 }
 
@@ -49,6 +49,17 @@ i {
 	margin-left: 1px;
 	margin-right: 1px;
 }
+
+#infoContainer {
+	width : 33%;
+	height : 100%;
+	float: left;
+	margin-right : 1rem;
+}
+#skillsContainer {
+	width:66%;
+	height: 100%;
+}
 #info {
 	h2 {
 
@@ -67,10 +78,10 @@ i {
 }
 
 #contact {
-	width : inherit;
+	width : 100%;
 	.connection {
 		width : 25%;
-		padding : 1rem;
+		padding : 0.5rem;
 		float: left;
 		border : 1px solid black;
 		text-align: center;
