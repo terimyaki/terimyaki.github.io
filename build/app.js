@@ -9261,12 +9261,12 @@ Layout.prototype.buildSkills = function (node) {
 
 	this.data.skills.map(function (type) {
 		var container = $(document.createElement('div')).addClass('skill');
-		var title = $(document.createElement('h3')).addClass('type').text(type.name);
+		var title = $(document.createElement('h3')).addClass('type').text(type.name.toUpperCase());
 		var listing = $(document.createElement('div')).addClass('list');
 		type.list.forEach(function (skill) {
 			var entry = $(document.createElement('div')).addClass('entry');
-			var name = $(document.createElement('h5')).addClass('name').text(skill.name);
-			var rating = $(document.createElement('div')).addClass('rating');
+			var name = $(document.createElement('span')).addClass('name').text(skill.name);
+			var rating = $(document.createElement('span')).addClass('rating');
 			for (var i = 0; i < skill.rating; i++) {
 				rating.append($(document.createElement('i')).addClass(icons.circle));
 			}

@@ -105,7 +105,7 @@
             "image": "",
             "date": "October 2014",
             "link": "http://terimyaki.github.io/123Freeze",
-            "description": "",
+            "description": "A button-mashing game where you get points by stopping your number on the target number.",
             "tech": [
                 "Vanilla Js",
                 "HTML5 Canvas"
@@ -116,7 +116,7 @@
             "image": "",
             "date": "January 2015",
             "link": "https://github.com/terimyaki/choppedCode",
-            "description": "",
+            "description": "Inspired by the Iron Chef and Chopped, comes a new form of competiton for programmers. Develop the best product, given a theme and set of modules, apis, or frameworks.",
             "tech": [
                 "Cheerio",
                 "AngularJs",
@@ -129,7 +129,7 @@
             "image": "",
             "date": "March 2015",
             "link": "https://github.com/sanghun89/SS-Hackathon",
-            "description": "",
+            "description": "A message in a bottle is a musical note, the sea is the internet, locations on the seashore are people. As a bottle reaches each location, a person can listen, add or subtract something from the existing song and then send the bottle back out to sea.",
             "tech": [
                 "Tone.Js",
                 "Socket.io",
@@ -143,7 +143,7 @@
             "image": "",
             "date": "April 2015",
             "link": "https://github.com/iandownie/stackstore",
-            "description": "",
+            "description": "An ecommerce site where anyone can create their own store and sell their wares.",
             "tech": [
                 "AngularJs",
                 "Node/Express",
@@ -155,7 +155,7 @@
             "image": "",
             "date": "April 2015",
             "link": "https://github.com/terimyaki/cha-ching",
-            "description": "",
+            "description": "Ever see a product that you like, but couldn't get it due to it currently being out of stock or your price range. Bookmark with Cha-Ching and it'll alert you when it falls into your criteria.",
             "tech": [
                 "Firebase",
                 "Chrome Extension",
@@ -168,7 +168,7 @@
             "image": "",
             "date": "May 2015",
             "link": "https://github.com/RichardBansal/mide",
-            "description": "",
+            "description": "An Ionic mobile application that allows anyone to complete coding challenges or code offline. It features a customizable keyboard bar that can insert pre-defined code snippets to write with ease.",
             "tech": [
                 "Ionic",
                 "Jasmine",
