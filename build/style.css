@@ -1,55 +1,19 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue_grey-orange.min.css);
 * {
-  box-sizing: border-box; }
-
-/*-- our cleafix hack -- */
-.row:before,
-.row:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-[class*='col-'] {
-  float: left;
-  min-height: 1px;
-  width: 16.66%;
-  /*-- our gutter --*/
-  padding: 12px; }
-
-article {
-  width: auto;
-  height: 100vh; }
-
-a {
-  color: inherit;
-  text-decoration: none; }
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; }
 
 i {
-  display: inline-block;
   margin-left: 1px;
   margin-right: 1px; }
 
-#infoContainer {
-  width: 33%;
-  height: 100%;
-  float: left;
-  margin-right: 1rem; }
+#image {
+  height: 200px; }
 
-#skillsContainer {
-  width: 66%;
-  height: 100%; }
-
-#image img {
-  width: 100%;
-  height: auto; }
-
-#contact {
-  width: 100%; }
-  #contact .connection {
-    width: 25%;
-    padding: 0.5rem;
-    float: left;
-    border: 1px solid black;
-    text-align: center; }
+#contact i {
+  margin-right: 2rem; }
 
 .skill .list .entry .name {
   margin: 0rem 0.25rem 0.25rem 0rem; }
@@ -59,11 +23,18 @@ i {
 
 #projects {
   width: 100%; }
+  #projects .project .mdl-card__title {
+    height: 180px; }
+  #projects .project .title {
+    color: white; }
+  #projects .project img {
+    width: 100%;
+    height: auto; }
   #projects .project .description {
     width: 100%;
     height: auto; }
+  #projects .project .techContainer {
+    width: 100%; }
   #projects .project .tech {
-    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
     margin: 0.25rem;
-    border: 1px solid black;
     border-radius: 0.25rem; }

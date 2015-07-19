@@ -1,179 +1,149 @@
 {
     "skills": [
         {
-            "name" : "languages",
-            "list" : [
-                {
-                    "name" : "Javascript",
-                    "rating": 4
-                }
-            ]
+            "name" : "javascript",
+            "rating": 4
         },
         {
-            "name" : "frontend",
-            "list" : [
-                {
-                    "name" : "AngularJs",
-                    "rating" : 4
-                },
-                {
-                    "name" : "JQuery",
-                    "rating" : 4
-                },
-                {
-                    "name" : "HTML5Canvas",
-                    "rating" : 2
-                }
-            ]
+            "name" : "angular",
+            "rating" : 4
         },
         {
-            "name" : "backend",
-            "list" : [
-                {
-                    "name" : "Node/Express",
-                    "rating" : 4
-                },
-                {
-                    "name" : "MongoDB/Mongoose",
-                    "rating" : 4
-                },
-                {
-                    "name" : "Firebase",
-                    "rating" : 3
-                }
-            ]
+            "name" : "jquery",
+            "rating" : 4
         },
         {
-            "name" : "testing",
-            "list" : [
-                {
-                    "name" : "Jasmine",
-                    "rating" : 3
-                },
-                {
-                    "name" : "Mocha/Chai",
-                    "rating" : 3
-                }
-            ]
+            "name" : "canvas",
+            "rating" : 2
         },
         {
-            "name" : "build",
-            "list" : [
-                {
-                    "name" : "Gulp",
-                    "rating" : 4
-                },
-                {
-                    "name" : "Sass",
-                    "rating" : 4
-                },
-                {
-                    "name" : "Grunt",
-                    "rating" : 2
-                }
-            ]
+            "name" : "node",
+            "rating" : 4
         },
         {
-            "name" : "tools",
-            "list" : [
-                {
-                    "name" : "Ionic",
-                    "rating" : 3
-                },
-                {
-                    "name" : "Bluebird",
-                    "rating" : 3
-                },
-                {
-                    "name" : "Chrome Extension",
-                    "rating" : 3
-                },
-                {
-                    "name" : "Socket.io",
-                    "rating" : 2
-                },
-                {
-                    "name" : "Tessel",
-                    "rating" : 2
-                }
-            ]
+            "name" : "mongo",
+            "rating" : 4
+        },
+        {
+            "name" : "firebase",
+            "rating" : 3
+        },
+        {
+            "name" : "jasmine",
+            "rating" : 3
+        },
+        {
+            "name" : "karma",
+            "rating" : 3
+        },
+        {
+            "name" : "mocha",
+            "rating" : 3
+        },
+        {
+            "name" : "gulp",
+            "rating" : 4
+        },
+        {
+            "name" : "sass",
+            "rating" : 4
+        },
+        {
+            "name" : "grunt",
+            "rating" : 2
+        },
+        {
+            "name" : "ionic",
+            "rating" : 3
+        },
+        {
+            "name" : "extension",
+            "rating" : 3
+        },
+        {
+            "name" : "socket",
+            "rating" : 2
+        },
+        {
+            "name" : "tessel",
+            "rating" : 2
         }
     ],
     "projects": [
         {
             "name" : "1,2,3 Freeze",
-            "image": "",
+            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
             "date": "October 2014",
             "link": "http://terimyaki.github.io/123Freeze",
             "description": "A button-mashing game where you get points by stopping your number on the target number.",
             "tech": [
-                "HTML5 Canvas"
+                "canvas"
             ]
         },
         {
             "name" : "ChoppedCode",
-            "image": "",
+            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
             "date": "January 2015",
             "link": "https://github.com/terimyaki/choppedCode",
             "description": "Inspired by the Iron Chef and Chopped, comes a new form of competiton for programmers. Develop the best product, given a theme and set of modules, apis, or frameworks.",
             "tech": [
-                "Cheerio",
-                "AngularJs",
-                "Node/Express",
-                "MongoDB/Mongoose"
+                "cheerio",
+                "angular",
+                "node",
+                "mongo"
             ]
         },
         {
             "name" : "Note In a Bottle",
-            "image": "",
+            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
             "date": "March 2015",
             "link": "https://github.com/sanghun89/SS-Hackathon",
             "description": "A message in a bottle is a musical note, the sea is the internet, locations on the seashore are people. As a bottle reaches each location, a person can listen, add or subtract something from the existing song and then send the bottle back out to sea.",
             "tech": [
-                "Tone.Js",
-                "Socket.io",
-                "JQuery",
-                "Node/Express",
-                "MongoDB/Mongoose"
+                "tone",
+                "socket",
+                "jquery",
+                "node",
+                "mongo"
             ]
         },
         {
             "name" : "The Bazaar",
-            "image": "",
+            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
             "date": "April 2015",
             "link": "https://github.com/iandownie/stackstore",
             "description": "An ecommerce site where anyone can create their own store and sell their wares.",
             "tech": [
-                "AngularJs",
-                "Node/Express",
-                "MongoDB/Mongoose"
+                "angular",
+                "node",
+                "mongo"
             ]
         },
         {
             "name" : "Cha-Ching",
-            "image": "",
+            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
             "date": "April 2015",
             "link": "https://github.com/terimyaki/cha-ching",
             "description": "Ever see a product that you like, but couldn't get it due to it currently being out of stock or your price range. Bookmark with Cha-Ching and it'll alert you when it falls into your criteria.",
             "tech": [
-                "Firebase",
-                "Chrome Extension",
-                "AngularJs",
-                "Node/Express"
+                "firebase",
+                "extension",
+                "angular",
+                "node"
             ]
         },
         {
             "name" : "Mide",
-            "image": "",
+            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
             "date": "May 2015",
             "link": "https://github.com/RichardBansal/mide",
             "description": "An Ionic mobile application that allows anyone to complete coding challenges or code offline. It features a customizable keyboard bar that can insert pre-defined code snippets to write with ease.",
             "tech": [
-                "Ionic",
-                "Jasmine",
-                "AngularJs",
-                "Node/Express",
-                "MongoDB/Mongoose"
+                "ionic",
+                "jasmine",
+                "angular",
+                "node",
+                "mongo"
             ]
         }
     ],
@@ -181,7 +151,7 @@
         "github": "https://github.com/terimyaki",
         "linkedin": "https://www.linkedin.com/in/codechef",
         "email": "tonyli42w@gmail.com",
-        "phone": "917-232-8233"
+        "phone": "518-712-9466"
     },
     "info": {
         "name": "Tony Li",

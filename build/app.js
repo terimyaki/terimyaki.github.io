@@ -9212,30 +9212,203 @@ return jQuery;
 
 },{}],2:[function(require,module,exports){
 'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
 var $ = require('jquery');
+var groups = {
+	language: 'language',
+	frontend: 'frontend',
+	backend: 'backend',
+	build: 'build',
+	testing: 'testing',
+	tools: 'tools'
+};
+
+var skillsIndex = {
+	javascript: {
+		group: groups.language,
+		name: 'Javascript'
+	},
+	angular: {
+		group: groups.frontend,
+		name: 'Angular'
+	},
+	jquery: {
+		group: groups.frontend,
+		name: 'JQuery'
+	},
+	canvas: {
+		group: groups.frontend,
+		name: 'Html5 Canvas'
+	},
+	node: {
+		group: groups.backend,
+		name: 'Node/Express'
+	},
+	mongo: {
+		group: groups.backend,
+		name: 'MongoDB/Mongoose'
+	},
+	firebase: {
+		group: groups.backend,
+		name: 'Firebase'
+	},
+	jasmine: {
+		group: groups.testing,
+		name: 'Jasmine'
+	},
+	karma: {
+		group: groups.testing,
+		name: 'Karma'
+	},
+	mocha: {
+		group: groups.testing,
+		name: 'Mocha'
+	},
+	gulp: {
+		group: groups.build,
+		name: 'Mocha'
+	},
+	sass: {
+		group: groups.build,
+		name: 'Sass'
+	},
+	grunt: {
+		group: groups.build,
+		name: 'Grunt'
+	},
+	ionic: {
+		group: groups.tools,
+		name: 'Ionic'
+	},
+	extension: {
+		group: groups.tools,
+		name: 'Chrome Extension'
+	},
+	socket: {
+		group: groups.tools,
+		name: 'Socket.Io'
+	},
+	tessel: {
+		group: groups.tools,
+		name: 'Tessel'
+	},
+	cheerio: {
+		group: groups.tools,
+		name: 'Cheerio'
+	},
+	tone: {
+		group: groups.tools,
+		name: 'ToneJs'
+	}
+};
 
 $(document).ready(function () {
 	$.getJSON('data.json', function (data) {
 		console.log(data);
 		var profile = new Layout(data);
-		profile.buildAll();
+		profile.render();
 	});
 });
 
-function Layout(data) {
-	this.data = data;
-}
+var Layout = (function () {
+	function Layout(data) {
+		_classCallCheck(this, Layout);
 
-Layout.prototype.buildInfo = function (node) {
-	var name = $(document.createElement('h2')).text(this.data.info.name);
-	var description = $(document.createElement('p')).text(this.data.info.description);
-	var image = $(document.createElement('img')).attr('src', this.data.info.image);
+		//actual variables
+		this._info;
+		this._contact;
+		this._skills;
+		this._projects;
+
+		//interface variables
+		this.info = data.info;
+		this.contact = data.contact;
+		this.skills = data.skills;
+		this.projects = data.projects;
+	}
+
+	_createClass(Layout, [{
+		key: 'render',
+		value: function render() {
+			var body = document.body;
+			var infoContainer = $('#info');
+			var contactsContainer = $('#contact');
+			var skillsContainer = $('#skills');
+			var projectsContainer = $('#projects');
+			buildInfo(infoContainer, this.info);
+			buildContact(contactsContainer, this.contact);
+			buildSkills(skillsContainer, this.skills);
+			buildProjects(projectsContainer, this.projects);
+		}
+	}, {
+		key: 'info',
+		get: function () {
+			return this._info;
+		},
+		set: function (info) {
+			this._info = info;
+		}
+	}, {
+		key: 'contact',
+		get: function () {
+			return this._contact;
+		},
+		set: function (contact) {
+			this._contact = contact;
+		}
+	}, {
+		key: 'skills',
+		get: function () {
+			return this._skills;
+		},
+		set: function (skills) {
+			skills = Object.keys(groups).map(function (type) {
+				var info = {
+					name: groups[type]
+				};
+				info.list = skills.filter(function (skill) {
+					return skillsIndex[skill.name].group === groups[type];
+				}).map(function (skill) {
+					var details = skillsIndex[skill.name];
+					details.rating = skill.rating;
+					return details;
+				});
+				return info;
+			});
+			this._skills = skills;
+		}
+	}, {
+		key: 'projects',
+		get: function () {
+			return this._projects;
+		},
+		set: function (projects) {
+			projects = projects.map(function (project) {
+				project.tech = project.tech.map(function (tag) {
+					return skillsIndex[tag];
+				});
+				return project;
+			});
+			this._projects = projects;
+		}
+	}]);
+
+	return Layout;
+})();
+
+function buildInfo(node, info) {
+	var name = $(document.createElement('h2')).text(info.name);
+	var description = $(document.createElement('p')).text(info.description);
 	node.append(name);
 	node.append(description);
-	$('#image').append(image);
-};
+	$('#image').css('background', 'url(' + info.image + ') center/cover');
+}
 
-Layout.prototype.buildContact = function (node) {
+function buildContact(node, contact) {
 	var icons = {
 		github: 'fa fa-github-alt',
 		linkedin: 'fa fa-linkedin',
@@ -9243,32 +9416,47 @@ Layout.prototype.buildContact = function (node) {
 		phone: 'fa fa-phone'
 	};
 
-	var types = Object.keys(this.data.contact);
-	types.forEach((function (type) {
-		var container = $(document.createElement('div')).addClass('connection');
-		var link = $(document.createElement('a')).attr('href', this[type]).attr('target', '_blank');
+	Object.keys(contact).forEach(function (type) {
+		var link = $(document.createElement('a'));
 		var represent = $(document.createElement('i')).addClass(icons[type]);
+		var text = $(document.createElement('span')).text(type.toUpperCase());
+		if (type === 'email') {
+			link.attr('href', 'mailto:' + contact[type]);
+		} else if (type === 'phone') {
+			link.attr('href', 'tel:' + contact[type]);
+		} else {
+			link.attr('href', contact[type]).attr('target', '_blank');
+		}
+		var represent = $(document.createElement('i')).addClass(icons[type]);
+		var text = $(document.createElement('span')).text(type.toUpperCase());
+		link.addClass('mdl-navigation__link').mouseenter(function () {
+			$(this).find('i').hide();
+			$(this).find('span').text(contact[type]);
+		}).mouseleave(function () {
+			$(this).find('i').show();
+			$(this).find('span').text(type.toUpperCase());
+		});
 		link.append(represent);
-		container.append(link);
-		node.append(container);
-	}).bind(this.data.contact));
-};
+		link.append(text);
+		node.append(link);
+	});
+}
 
-Layout.prototype.buildSkills = function (node) {
+function buildSkills(node, skills) {
 	var icons = {
 		circle: 'fa fa-circle-o'
 	};
 
-	this.data.skills.map(function (type) {
-		var container = $(document.createElement('div')).addClass('skill');
-		var title = $(document.createElement('h3')).addClass('type').text(type.name.toUpperCase());
+	skills.map(function (info) {
+		var container = $(document.createElement('div')).addClass('skill').addClass('mdl-cell').addClass('mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone');
+		var title = $(document.createElement('h3')).addClass('type').text(info.name.toUpperCase());
 		var listing = $(document.createElement('div')).addClass('list');
-		type.list.forEach(function (skill) {
+		info.list.forEach(function (skill) {
 			var entry = $(document.createElement('div')).addClass('entry');
 			var name = $(document.createElement('span')).addClass('name').text(skill.name);
 			var rating = $(document.createElement('span')).addClass('rating');
 			for (var i = 0; i < skill.rating; i++) {
-				rating.append($(document.createElement('i')).addClass(icons.circle));
+				rating.append($(document.createElement('i')).addClass(icons.circle)).addClass('mdl-button--accent');
 			}
 			entry.append(name);
 			entry.append(rating);
@@ -9280,42 +9468,37 @@ Layout.prototype.buildSkills = function (node) {
 	}).forEach(function (skillNode) {
 		node.append(skillNode);
 	});
-};
+}
 
-Layout.prototype.buildProjects = function (node) {
+function buildProjects(node, projects) {
 
-	this.data.projects.map(function (project) {
-		var container = $(document.createElement('div')).addClass('project');
-		var title = $(document.createElement('h3')).addClass('title').text(project.name);
-		var link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link);
-		var image = $(document.createElement('img')).attr('src', project.image);
+	projects.map(function (project) {
+		var container = $(document.createElement('div')).addClass('project').addClass('mdl-cell');
+		var card = $(document.createElement('div')).addClass('mdl-card mdl-shadow--2dp demo-card-square');
+		var titleContainer = $(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover');
+		var title = $(document.createElement('h3')).addClass('title').addClass('mdl-card__title-text').text(project.name);
+		var link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).text('Visit').addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
+		// var image = $(document.createElement('img')).attr('src', project.image);
+		var supportingContainer = $(document.createElement('div')).addClass('mdl-card__supporting-text');
 		var description = $(document.createElement('p')).addClass('description').text(project.description);
-		var tech = $(document.createElement('div'));
-		project.tech.forEach(function (name) {
-			var tag = $(document.createElement('span')).addClass('tech').text(name);
+		var actionContainer = $(document.createElement('div')).addClass('mdl-card__actions mdl-card--border');
+		var tech = $(document.createElement('div')).addClass('techContainer');
+		project.tech.forEach(function (item) {
+			var tag = $(document.createElement('span')).addClass('tech').text(item.name).addClass('mdl-button mdl-js-button mdl-button--raised mdl-button--colored');
 			tech.append(tag);
 		});
-		link.append(image);
-		container.append(title);
-		container.append(link);
-		container.append(description);
-		container.append(tech);
+		titleContainer.append(title);
+		supportingContainer.append(description);
+		supportingContainer.append(tech);
+		actionContainer.append(link);
+		card.append(titleContainer);
+		card.append(supportingContainer);
+		card.append(actionContainer);
+		container.append(card);
 		return container;
 	}).forEach(function (project) {
 		node.append(project);
 	});
-};
-
-Layout.prototype.buildAll = function () {
-	var body = document.body;
-	var infos = $('#info');
-	var contacts = $('#contact');
-	var skills = $('#skills');
-	var projects = $('#projects');
-	this.buildInfo(infos);
-	this.buildContact(contacts);
-	this.buildSkills(skills);
-	this.buildProjects(projects);
-};
+}
 
 },{"jquery":1}]},{},[2]);
