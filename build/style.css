@@ -9,6 +9,9 @@ i {
   margin-left: 1px;
   margin-right: 1px; }
 
+#skillsContainer {
+  height: 100vh; }
+
 #image {
   height: 200px; }
 
@@ -21,10 +24,14 @@ i {
 .skill .list .entry .rating {
   margin: 0.25rem; }
 
+#first .section-header {
+  padding-top: 20px;
+  color: white; }
+
 #projects {
   width: 100%; }
   #projects .project .mdl-card__title {
-    height: 180px; }
+    height: 200px; }
   #projects .project .title {
     color: white; }
   #projects .project img {

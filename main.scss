@@ -7,15 +7,6 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-// article {
-// 	width : auto;
-// 	height : 100vh;
-// 	// float: left;
-// }
-
-// section {
-
-// }
 // div {
 // }
 
@@ -59,6 +50,10 @@ i {
 // 	}
 // }
 
+
+#skillsContainer {
+	height: 100vh;
+}
 #image {
 	height: 200px;
 }
@@ -88,14 +83,16 @@ i {
 	}
 }
 
-
+#first .section-header{
+	padding-top : 20px;
+	color: white;
+}
 
 #projects {
 	width : 100%;
-
 	.project {
 		.mdl-card__title{
-			height : 180px;
+			height : 200px;
 		}
 		.title {
 			color: white;

@@ -85,12 +85,15 @@ var skillsIndex = {
 	tone : {
 		group : groups.tools,
 		name : "ToneJs"
+	},
+	googlemaps : {
+		group : groups.tools,
+		name : "Google Maps"
 	}
 };
 
 $(document).ready(function(){
 	$.getJSON('data.json', function(data){
-		console.log(data);
 		var profile = new Layout(data);
 		profile.render();
 	});
@@ -167,8 +170,8 @@ class Layout {
 }
 
 function buildInfo (node, info){
-	var name = $(document.createElement('h2')).text(info.name);
-	var description = $(document.createElement('p')).text(info.description);
+	var name = $(document.createElement('h3')).text(info.name);
+	var description = $(document.createElement('h6')).text(info.description);
 	node.append(name);
 	node.append(description);
 	$('#image').css('background', 'url(' + info.image +') center/cover');
@@ -191,7 +194,7 @@ function buildContact(node, contact){
 		} else if(type === 'phone'){
 			link.attr('href', 'tel:' + contact[type]);
 		} else {
-			link.attr('href', contact[type]).attr('target', '_blank');
+			link.attr('href', 'https://' + contact[type]).attr('target', '_blank');
 		}
 		var represent = $(document.createElement('i')).addClass(icons[type]);
 		var text = $(document.createElement('span')).text(type.toUpperCase());
@@ -245,7 +248,6 @@ function buildProjects(node, projects){
 		var titleContainer = $(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover');
 		var title = $(document.createElement('h3')).addClass('title').addClass('mdl-card__title-text').text(project.name);
 		var link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).text('Visit').addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
-		// var image = $(document.createElement('img')).attr('src', project.image);
 		var supportingContainer = $(document.createElement('div')).addClass('mdl-card__supporting-text');
 		var description = $(document.createElement('p')).addClass('description').text(project.description);
 		var actionContainer = $(document.createElement('div')).addClass('mdl-card__actions mdl-card--border');

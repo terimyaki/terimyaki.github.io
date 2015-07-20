@@ -145,11 +145,24 @@
                 "node",
                 "mongo"
             ]
+        },
+        {
+            "name" : "StrollWith.me",
+            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
+            "date": "June 2015",
+            "link": "http://strollwith.me/",
+            "description": "A marketplace for audio tours",
+            "tech": [
+                "googlemaps",
+                "angular",
+                "node",
+                "mongo"
+            ]
         }
     ],
     "contact": {
-        "github": "https://github.com/terimyaki",
-        "linkedin": "https://www.linkedin.com/in/codechef",
+        "github": "www.github.com/terimyaki",
+        "linkedin": "www.linkedin.com/in/codechef",
         "email": "tonyli42w@gmail.com",
         "phone": "518-712-9466"
     },
