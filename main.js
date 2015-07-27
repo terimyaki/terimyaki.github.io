@@ -1,6 +1,8 @@
 'use strict'
-var $ = require('jquery');
-var groups = {
+import $ from 'jquery';
+import url from 'url';
+
+let groups = {
 	language : 'language',
 	frontend : 'frontend',
 	backend : 'backend',
@@ -9,7 +11,7 @@ var groups = {
 	tools : 'tools'
 };
 
-var skillsIndex = {
+let skillsIndex = {
 	javascript : {
 		group : groups.language,
 		name : 'Javascript'
@@ -52,7 +54,7 @@ var skillsIndex = {
 	},
 	gulp : {
 		group : groups.build,
-		name : 'Mocha'
+		name : 'Gulp'
 	},
 	sass : {
 		group : groups.build,
@@ -94,7 +96,7 @@ var skillsIndex = {
 
 $(document).ready(function(){
 	$.getJSON('data.json', function(data){
-		var profile = new Layout(data);
+		let profile = new Layout(data);
 		profile.render();
 	});
 });
@@ -129,17 +131,16 @@ class Layout {
 		return this._skills;
 	}
 	set skills(skills){
-		skills = Object.keys(groups).map(function(type){
-				var info = {
+		skills = Object.keys(groups).map( type => {
+				let info = {
 					name : groups[type],
 				};
-				info.list = skills.filter(function(skill){
-					return skillsIndex[skill.name].group === groups[type];
-				}).map(function(skill){
-					var details = skillsIndex[skill.name];
-					details.rating = skill.rating;
-					return details;
-				});
+				info.list = skills.filter( skill => skillsIndex[skill.name].group === groups[type])
+								.map(skill => {
+									let details = skillsIndex[skill.name];
+									details.rating = skill.rating;
+									return details;
+								});
 			return info;
 		});
 		this._skills = skills;
@@ -148,20 +149,18 @@ class Layout {
 		return this._projects;
 	}
 	set projects(projects){
-		projects = projects.map(function(project){
-			project.tech = project.tech.map(function(tag){
-				return skillsIndex[tag];
-			});
+		projects = projects.map( project => {
+			project.tech = project.tech.map(tag => skillsIndex[tag]);
 			return project;
 		});
 		this._projects = projects;
 	}
 	render(){
-		var body = document.body;
-		var infoContainer = $('#info');
-		var contactsContainer = $('#contact');
-		var skillsContainer = $('#skills');
-		var projectsContainer = $('#projects');
+		let body = document.body;
+		let infoContainer = $('#info');
+		let contactsContainer = $('#contact');
+		let skillsContainer = $('#skills');
+		let projectsContainer = $('#projects');
 		buildInfo(infoContainer, this.info);
 		buildContact(contactsContainer, this.contact);
 		buildSkills(skillsContainer, this.skills);
@@ -170,15 +169,15 @@ class Layout {
 }
 
 function buildInfo (node, info){
-	var name = $(document.createElement('h3')).text(info.name);
-	var description = $(document.createElement('h6')).text(info.description);
+	let name = $(document.createElement('h3')).text(info.name);
+	let description = $(document.createElement('h6')).text(info.description);
 	node.append(name);
 	node.append(description);
 	$('#image').css('background', 'url(' + info.image +') center/cover');
 }
 
 function buildContact(node, contact){
-	var icons = {
+	let icons = {
 		github : 'fa fa-github-alt',
 		linkedin : 'fa fa-linkedin',
 		email : 'fa fa-envelope',
@@ -186,25 +185,15 @@ function buildContact(node, contact){
 	};
 
 	Object.keys(contact).forEach(function(type){
-		var link = $(document.createElement('a'));
-		var represent = $(document.createElement('i')).addClass(icons[type]);
-		var text = $(document.createElement('span')).text(type.toUpperCase());
-		if(type === 'email'){
-			link.attr('href', 'mailto:' + contact[type]);
-		} else if(type === 'phone'){
-			link.attr('href', 'tel:' + contact[type]);
-		} else {
-			link.attr('href', 'https://' + contact[type]).attr('target', '_blank');
-		}
-		var represent = $(document.createElement('i')).addClass(icons[type]);
-		var text = $(document.createElement('span')).text(type.toUpperCase());
-		link.addClass('mdl-navigation__link').mouseenter(function(){
-			$(this).find('i').hide();
-			$(this).find('span').text(contact[type]);
-		}).mouseleave(function(){
-			$(this).find('i').show();
-			$(this).find('span').text(type.toUpperCase());
-		});
+		let link = $(document.createElement('a'));
+		let represent = $(document.createElement('i')).addClass(icons[type]);
+		let text = $(document.createElement('span')).text(type.toUpperCase());
+		if(type === 'email') link.attr('href', 'mailto:' + contact[type]);
+		else if(type === 'phone') link.attr('href', 'tel:' + contact[type]);
+		else link.attr('href', 'https://' + contact[type]).attr('target', '_blank');
+		link.addClass('mdl-navigation__link')
+			.mouseenter(() => $(this).find('span').text(contact[type]))
+			.mouseleave(() => $(this).find('span').text(type.toUpperCase()));
 		link.append(represent);
 		link.append(text);
 		node.append(link);
@@ -213,18 +202,23 @@ function buildContact(node, contact){
 }
 
 function buildSkills(node, skills){
-	var icons = {
+	let icons = {
 		circle : 'fa fa-circle-o'
 	};
 
 	skills.map(function(info){
-		var container = $(document.createElement('div')).addClass('skill').addClass('mdl-cell').addClass('mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone');
-		var title = $(document.createElement('h3')).addClass('type').text(info.name.toUpperCase());
-		var listing = $(document.createElement('div')).addClass('list');
+		let container = $(document.createElement('div'))
+								.addClass('skill')
+								.addClass('mdl-cell')
+								.addClass('mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone');
+		let title = $(document.createElement('h3'))
+							.addClass('type')
+							.text(info.name.toUpperCase());
+		let listing = $(document.createElement('div')).addClass('list');
 		info.list.forEach(function(skill){
-			var entry = $(document.createElement('div')).addClass('entry');
-			var name = $(document.createElement('span')).addClass('name').text(skill.name);
-			var rating = $(document.createElement('span')).addClass('rating');
+			let entry = $(document.createElement('div')).addClass('entry');
+			let name = $(document.createElement('span')).addClass('name').text(skill.name);
+			let rating = $(document.createElement('span')).addClass('rating');
 			for(let i = 0; i < skill.rating; i++){
 				rating.append($(document.createElement('i')).addClass(icons.circle)).addClass('mdl-button--accent');
 			}
@@ -243,17 +237,20 @@ function buildSkills(node, skills){
 function buildProjects(node, projects){
 
 	projects.map(function(project){
-		var container = $(document.createElement('div')).addClass('project').addClass('mdl-cell');
-		var card = $(document.createElement('div')).addClass('mdl-card mdl-shadow--2dp demo-card-square');
-		var titleContainer = $(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover');
-		var title = $(document.createElement('h3')).addClass('title').addClass('mdl-card__title-text').text(project.name);
-		var link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).text('Visit').addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
-		var supportingContainer = $(document.createElement('div')).addClass('mdl-card__supporting-text');
-		var description = $(document.createElement('p')).addClass('description').text(project.description);
-		var actionContainer = $(document.createElement('div')).addClass('mdl-card__actions mdl-card--border');
-		var tech = $(document.createElement('div')).addClass('techContainer');
+		let container = $(document.createElement('div')).addClass('project').addClass('mdl-cell');
+		let card = $(document.createElement('div')).addClass('mdl-card mdl-shadow--2dp demo-card-square');
+		let titleContainer = $(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover');
+		let title = $(document.createElement('h3'))
+							.addClass('title').addClass('mdl-card__title-text').text(project.name);
+		let link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
+		if(url.parse(project.link, true, true).hostname === 'github.com') link.text('See the Github Repo');
+		else link.text('Visit The Site');
+		let supportingContainer = $(document.createElement('div')).addClass('mdl-card__supporting-text');
+		let description = $(document.createElement('p')).addClass('description').text(project.description);
+		let actionContainer = $(document.createElement('div')).addClass('mdl-card__actions mdl-card--border');
+		let tech = $(document.createElement('div')).addClass('techContainer');
 		project.tech.forEach(function(item){
-			var tag = $(document.createElement('span')).addClass('tech').text(item.name).addClass('mdl-button mdl-js-button mdl-button--raised mdl-button--colored');
+			let tag = $(document.createElement('span')).addClass('tech').text(item.name).addClass('mdl-button mdl-js-button mdl-button--raised mdl-button--colored');
 			tech.append(tag);
 		});
 		titleContainer.append(title);

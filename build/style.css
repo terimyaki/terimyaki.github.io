@@ -15,6 +15,9 @@ i {
 #image {
   height: 200px; }
 
+#contact .mdl-navigation__link:hover > i {
+  display: none; }
+
 #contact i {
   margin-right: 2rem; }
 
@@ -32,6 +35,13 @@ i {
   width: 100%; }
   #projects .project .mdl-card__title {
     height: 200px; }
+  #projects .project .demo-card-square > .mdl-card__supporting-text {
+    height: 0px;
+    padding: 0px;
+    transition: height 0.2s linear, padding 0.2s linear; }
+  #projects .project .demo-card-square:hover > .mdl-card__supporting-text {
+    height: auto;
+    padding: 16px; }
   #projects .project .title {
     color: white; }
   #projects .project img {

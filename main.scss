@@ -59,8 +59,10 @@ i {
 }
 
 #contact {
+	.mdl-navigation__link:hover > i {
+		display:none;
+	}
 	i {
-
 		margin-right: 2rem;
 	}
 }
@@ -93,6 +95,15 @@ i {
 	.project {
 		.mdl-card__title{
 			height : 200px;
+		}
+		.demo-card-square > .mdl-card__supporting-text {
+			height: 0px;
+			padding : 0px;
+			transition: height .2s linear, padding .2s linear;
+		}
+		.demo-card-square:hover > .mdl-card__supporting-text {
+			height : auto;
+			padding : 16px;
 		}
 		.title {
 			color: white;
