@@ -10641,13 +10641,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+var _url = require('url');
+
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
-
-var _url = require('url');
-
-var _url2 = _interopRequireDefault(_url);
 
 var groups = {
 	language: 'language',
@@ -10837,8 +10835,7 @@ var Layout = (function () {
 function buildInfo(node, info) {
 	var name = (0, _jquery2['default'])(document.createElement('h3')).text(info.name);
 	var description = (0, _jquery2['default'])(document.createElement('h6')).text(info.description);
-	node.append(name);
-	node.append(description);
+	node.append(name).append(description);
 	(0, _jquery2['default'])('#image').css('background', 'url(' + info.image + ') center/cover');
 }
 
@@ -10851,19 +10848,16 @@ function buildContact(node, contact) {
 	};
 
 	Object.keys(contact).forEach(function (type) {
-		var _this = this;
-
 		var link = (0, _jquery2['default'])(document.createElement('a'));
 		var represent = (0, _jquery2['default'])(document.createElement('i')).addClass(icons[type]);
 		var text = (0, _jquery2['default'])(document.createElement('span')).text(type.toUpperCase());
 		if (type === 'email') link.attr('href', 'mailto:' + contact[type]);else if (type === 'phone') link.attr('href', 'tel:' + contact[type]);else link.attr('href', 'https://' + contact[type]).attr('target', '_blank');
-		link.addClass('mdl-navigation__link').mouseenter(function () {
-			return (0, _jquery2['default'])(_this).find('span').text(contact[type]);
-		}).mouseleave(function () {
-			return (0, _jquery2['default'])(_this).find('span').text(type.toUpperCase());
-		});
-		link.append(represent);
-		link.append(text);
+		link.addClass('mdl-navigation__link').mouseenter(function (e) {
+			return (0, _jquery2['default'])(e.target).find('span').text(contact[type]);
+		}).mouseleave(function (e) {
+			return (0, _jquery2['default'])(e.target).find('span').text(type.toUpperCase());
+		}).append(represent).append(text);
+
 		node.append(link);
 	});
 }
@@ -10884,12 +10878,10 @@ function buildSkills(node, skills) {
 			for (var i = 0; i < skill.rating; i++) {
 				rating.append((0, _jquery2['default'])(document.createElement('i')).addClass(icons.circle)).addClass('mdl-button--accent');
 			}
-			entry.append(name);
-			entry.append(rating);
+			entry.append(name).append(rating);
 			listing.append(entry);
 		});
-		container.append(title);
-		container.append(listing);
+		container.append(title).append(listing);
 		return container;
 	}).forEach(function (skillNode) {
 		node.append(skillNode);
@@ -10904,7 +10896,7 @@ function buildProjects(node, projects) {
 		var titleContainer = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover');
 		var title = (0, _jquery2['default'])(document.createElement('h3')).addClass('title').addClass('mdl-card__title-text').text(project.name);
 		var link = (0, _jquery2['default'])(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
-		if (_url2['default'].parse(project.link, true, true).hostname === 'github.com') link.text('See the Github Repo');else link.text('Visit The Site');
+		if ((0, _url.parse)(project.link, true, true).hostname === 'github.com') link.text('See the Github Repo');else link.text('Visit The Site');
 		var supportingContainer = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card__supporting-text');
 		var description = (0, _jquery2['default'])(document.createElement('p')).addClass('description').text(project.description);
 		var actionContainer = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card__actions mdl-card--border');
@@ -10914,12 +10906,9 @@ function buildProjects(node, projects) {
 			tech.append(tag);
 		});
 		titleContainer.append(title);
-		supportingContainer.append(description);
-		supportingContainer.append(tech);
+		supportingContainer.append(description).append(tech);
 		actionContainer.append(link);
-		card.append(titleContainer);
-		card.append(supportingContainer);
-		card.append(actionContainer);
+		card.append(titleContainer).append(supportingContainer).append(actionContainer);
 		container.append(card);
 		return container;
 	}).forEach(function (project) {

@@ -1,6 +1,6 @@
 'use strict'
+import {parse} from 'url';
 import $ from 'jquery';
-import url from 'url';
 
 let groups = {
 	language : 'language',
@@ -171,8 +171,8 @@ class Layout {
 function buildInfo (node, info){
 	let name = $(document.createElement('h3')).text(info.name);
 	let description = $(document.createElement('h6')).text(info.description);
-	node.append(name);
-	node.append(description);
+	node.append(name)
+		.append(description);
 	$('#image').css('background', 'url(' + info.image +') center/cover');
 }
 
@@ -192,10 +192,11 @@ function buildContact(node, contact){
 		else if(type === 'phone') link.attr('href', 'tel:' + contact[type]);
 		else link.attr('href', 'https://' + contact[type]).attr('target', '_blank');
 		link.addClass('mdl-navigation__link')
-			.mouseenter(() => $(this).find('span').text(contact[type]))
-			.mouseleave(() => $(this).find('span').text(type.toUpperCase()));
-		link.append(represent);
-		link.append(text);
+			.mouseenter(e => $(e.target).find('span').text(contact[type]))
+			.mouseleave(e => $(e.target).find('span').text(type.toUpperCase()))
+			.append(represent)
+			.append(text);
+
 		node.append(link);
 	});
 
@@ -222,12 +223,12 @@ function buildSkills(node, skills){
 			for(let i = 0; i < skill.rating; i++){
 				rating.append($(document.createElement('i')).addClass(icons.circle)).addClass('mdl-button--accent');
 			}
-			entry.append(name);
-			entry.append(rating);
+			entry.append(name)
+				.append(rating);
 			listing.append(entry);
 		});
-		container.append(title);
-		container.append(listing);
+		container.append(title)
+				.append(listing);
 		return container;
 	}).forEach(function(skillNode){
 		node.append(skillNode);
@@ -243,7 +244,7 @@ function buildProjects(node, projects){
 		let title = $(document.createElement('h3'))
 							.addClass('title').addClass('mdl-card__title-text').text(project.name);
 		let link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
-		if(url.parse(project.link, true, true).hostname === 'github.com') link.text('See the Github Repo');
+		if(parse(project.link, true, true).hostname === 'github.com') link.text('See the Github Repo');
 		else link.text('Visit The Site');
 		let supportingContainer = $(document.createElement('div')).addClass('mdl-card__supporting-text');
 		let description = $(document.createElement('p')).addClass('description').text(project.description);
@@ -254,12 +255,12 @@ function buildProjects(node, projects){
 			tech.append(tag);
 		});
 		titleContainer.append(title);
-		supportingContainer.append(description);
-		supportingContainer.append(tech);
+		supportingContainer.append(description)
+						.append(tech);
 		actionContainer.append(link);
-		card.append(titleContainer);
-		card.append(supportingContainer);
-		card.append(actionContainer);
+		card.append(titleContainer)
+			.append(supportingContainer)
+			.append(actionContainer);
 		container.append(card);
 		return container;
 	}).forEach(function(project){
