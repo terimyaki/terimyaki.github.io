@@ -9,8 +9,15 @@ i {
   margin-left: 1px;
   margin-right: 1px; }
 
-#skillsContainer {
-  height: 100vh; }
+#splash h1 {
+  transition: all 0.2s linear; }
+
+#splash h1:hover {
+  transform: rotate(180deg); }
+
+article {
+  min-height: 100vh;
+  height: auto; }
 
 #image {
   height: 200px; }
@@ -38,7 +45,7 @@ i {
   #projects .project .demo-card-square > .mdl-card__supporting-text {
     height: 0px;
     padding: 0px;
-    transition: height 0.2s linear, padding 0.2s linear; }
+    transition: height 0.2s ease-in, padding 0.2s ease-in; }
   #projects .project .demo-card-square:hover > .mdl-card__supporting-text {
     height: auto;
     padding: 16px; }

@@ -50,10 +50,32 @@ i {
 // 	}
 // }
 
-
-#skillsContainer {
-	height: 100vh;
+#splash {
+	h1 {
+		// opacity: 1;
+		transition: all .2s linear;
+	}
+	h1:hover {
+		// opacity: 0;
+		transform: rotate(180deg);
+	}
 }
+
+article {
+	min-height : 100vh;
+	height: auto;
+}
+
+// article:last-of-type {
+// 	height : auto;
+// }
+
+// article:nth-child(odd){
+	
+// }
+// #skillsContainer {
+// 	height: 80vh;
+// }
 #image {
 	height: 200px;
 }
@@ -99,7 +121,7 @@ i {
 		.demo-card-square > .mdl-card__supporting-text {
 			height: 0px;
 			padding : 0px;
-			transition: height .2s linear, padding .2s linear;
+			transition: height .2s ease-in, padding .2s ease-in;
 		}
 		.demo-card-square:hover > .mdl-card__supporting-text {
 			height : auto;

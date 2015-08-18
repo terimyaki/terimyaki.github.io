@@ -10709,6 +10709,10 @@ var skillsIndex = {
 		group: groups.build,
 		name: 'Grunt'
 	},
+	webpack: {
+		group: groups.build,
+		name: 'Webpack'
+	},
 	ionic: {
 		group: groups.tools,
 		name: 'Ionic'
@@ -10718,7 +10722,7 @@ var skillsIndex = {
 		name: 'Chrome Extension'
 	},
 	socket: {
-		group: groups.tools,
+		group: groups.frontenda,
 		name: 'Socket.Io'
 	},
 	tessel: {
@@ -10736,6 +10740,10 @@ var skillsIndex = {
 	googlemaps: {
 		group: groups.tools,
 		name: 'Google Maps'
+	},
+	arduino: {
+		group: groups.tools,
+		name: 'Arduino/Johnny-Five'
 	}
 };
 
@@ -10893,7 +10901,7 @@ function buildProjects(node, projects) {
 	projects.map(function (project) {
 		var container = (0, _jquery2['default'])(document.createElement('div')).addClass('project').addClass('mdl-cell');
 		var card = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card mdl-shadow--2dp demo-card-square');
-		var titleContainer = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover');
+		var titleContainer = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover').css('background-repeat', 'no-repeat');
 		var title = (0, _jquery2['default'])(document.createElement('h3')).addClass('title').addClass('mdl-card__title-text').text(project.name);
 		var link = (0, _jquery2['default'])(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
 		if ((0, _url.parse)(project.link, true, true).hostname === 'github.com') link.text('See the Github Repo');else link.text('Visit The Site');

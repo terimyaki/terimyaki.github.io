@@ -64,6 +64,10 @@ let skillsIndex = {
 		group : groups.build,
 		name : 'Grunt'
 	},
+	webpack : {
+		group : groups.build,
+		name : 'Webpack'
+	},
 	ionic : {
 		group : groups.tools,
 		name : 'Ionic'
@@ -73,7 +77,7 @@ let skillsIndex = {
 		name : 'Chrome Extension'
 	},
 	socket : {
-		group : groups.tools,
+		group : groups.frontenda,
 		name : 'Socket.Io'
 	},
 	tessel : {
@@ -91,6 +95,10 @@ let skillsIndex = {
 	googlemaps : {
 		group : groups.tools,
 		name : "Google Maps"
+	},
+	arduino : {
+		group : groups.tools,
+		name : "Arduino/Johnny-Five"
 	}
 };
 
@@ -240,7 +248,7 @@ function buildProjects(node, projects){
 	projects.map(function(project){
 		let container = $(document.createElement('div')).addClass('project').addClass('mdl-cell');
 		let card = $(document.createElement('div')).addClass('mdl-card mdl-shadow--2dp demo-card-square');
-		let titleContainer = $(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover');
+		let titleContainer = $(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover').css('background-repeat', 'no-repeat');
 		let title = $(document.createElement('h3'))
 							.addClass('title').addClass('mdl-card__title-text').text(project.name);
 		let link = $(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
