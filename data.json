@@ -21,7 +21,15 @@
             "rating" : 4
         },
         {
+            "name" : "express",
+            "rating" : 4
+        },
+        {
             "name" : "mongo",
+            "rating" : 4
+        },
+        {
+            "name" : "mongoose",
             "rating" : 4
         },
         {
@@ -107,7 +115,7 @@
         },
         {
             "name" : "Cha-Ching",
-            "image": "http://i.telegraph.co.uk/multimedia/archive/03257/POTD-SKY-SQUIRREL_3257854k.jpg",
+            "image": "images/qrcode.png",
             "date": "April 2015",
             "link": "https://github.com/terimyaki/cha-ching",
             "description": "Ever see a product that you like, but couldn't get it due to it currently being out of stock or your price range. Bookmark with Cha-Ching and it'll alert you when it falls into your criteria.",
@@ -143,7 +151,7 @@
     "about" : {
         "me" : [
             {
-                "subject" : "",
+                "subject" : "I am a code chef",
                 "body" : ""
             },
             {

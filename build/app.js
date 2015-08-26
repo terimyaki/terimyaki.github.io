@@ -10675,11 +10675,19 @@ var skillsIndex = {
 	},
 	node: {
 		group: groups.backend,
-		name: 'Node/Express'
+		name: 'Node'
+	},
+	express: {
+		group: groups.backend,
+		name: 'Express'
 	},
 	mongo: {
 		group: groups.backend,
-		name: 'MongoDB/Mongoose'
+		name: 'MongoDB'
+	},
+	mongoose: {
+		group: groups.backend,
+		name: 'Mongoose'
 	},
 	firebase: {
 		group: groups.backend,
@@ -10901,7 +10909,7 @@ function buildProjects(node, projects) {
 	projects.map(function (project) {
 		var container = (0, _jquery2['default'])(document.createElement('div')).addClass('project').addClass('mdl-cell');
 		var card = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card mdl-shadow--2dp demo-card-square');
-		var titleContainer = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card__title').css('background', 'url(' + project.image + ') center/cover').css('background-repeat', 'no-repeat');
+		var titleContainer = (0, _jquery2['default'])(document.createElement('div')).addClass('mdl-card__title').css('background', 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4)), url(' + project.image + ') center/cover').css('background-repeat', 'no-repeat');
 		var title = (0, _jquery2['default'])(document.createElement('h3')).addClass('title').addClass('mdl-card__title-text').text(project.name);
 		var link = (0, _jquery2['default'])(document.createElement('a')).addClass('target', '_blank').attr('href', project.link).addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
 		if ((0, _url.parse)(project.link, true, true).hostname === 'github.com') link.text('See the Github Repo');else link.text('Visit The Site');
