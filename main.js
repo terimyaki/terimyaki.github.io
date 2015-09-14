@@ -85,7 +85,7 @@ let skillsIndex = {
 		name : 'Chrome Extension'
 	},
 	socket : {
-		group : groups.frontenda,
+		group : groups.frontend,
 		name : 'Socket.Io'
 	},
 	tessel : {
@@ -107,6 +107,14 @@ let skillsIndex = {
 	arduino : {
 		group : groups.tools,
 		name : "Arduino/Johnny-Five"
+	},
+	d3 : {
+		group : groups.frontend,
+		name : "D3"
+	},
+	electron : {
+		group : groups.tools,
+		name : "Electron"
 	}
 };
 

@@ -83,9 +83,30 @@
         {
             "name" : "arduino",
             "rating" : 2
+        },
+        {
+            "name" : "electron",
+            "rating" : 2
+        },
+        {
+            "name" : "d3",
+            "rating" : 2
         }
     ],
     "projects": [
+        {
+            "name" : "Measure My Resist",
+            "image" : "images/mmr.png",
+            "date" : "September 2015",
+            "link" : "https://github.com/terimyaki/MeasureMyResist",
+            "description" : "Created to learn circuits, how to read information from an Arduino and present data in a useful manner to the user.",
+            "tech" : [
+                "arduino",
+                "electron",
+                "d3",
+                "node"
+            ]
+        },
         {
             "name" : "StrollWith.me",
             "image": "images/logo_stroll.png",
