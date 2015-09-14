@@ -5,6 +5,9 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif; }
 
+main {
+  margin-top: -25px; }
+
 i {
   margin-left: 1px;
   margin-right: 1px; }
@@ -17,7 +20,9 @@ i {
 
 article {
   min-height: 100vh;
-  height: auto; }
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px; }
 
 #image {
   height: 200px; }

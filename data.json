@@ -91,7 +91,7 @@
             "image": "images/logo_stroll.png",
             "date": "June 2015",
             "link": "http://strollwith.me/",
-            "description": "A platform to share slices of life through audio and marketplace to exchange audio tours.",
+            "description": "Made during Angelhack, a platform to share slices of life through audio and marketplace to exchange audio tours.",
             "tech": [
                 "googlemaps",
                 "angular",
