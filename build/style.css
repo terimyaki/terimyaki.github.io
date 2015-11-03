@@ -13,7 +13,7 @@ i {
   margin-right: 1px; }
 
 #splash h1 {
-  transition: all 0.2s linear; }
+  transition: all .2s linear; }
 
 #splash h1:hover {
   transform: rotate(180deg); }
@@ -50,7 +50,7 @@ article {
   #projects .project .demo-card-square > .mdl-card__supporting-text {
     height: 0px;
     padding: 0px;
-    transition: height 0.2s ease-in, padding 0.2s ease-in; }
+    transition: height .2s ease-in, padding .2s ease-in; }
   #projects .project .demo-card-square:hover > .mdl-card__supporting-text {
     height: auto;
     padding: 16px; }

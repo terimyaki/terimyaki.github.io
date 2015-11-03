@@ -91,6 +91,14 @@
         {
             "name" : "d3",
             "rating" : 2
+        },
+        {
+            "name" : "rethinkdb",
+            "rating" : 1
+        },
+        {
+            "name" : "react",
+            "rating" : 1
         }
     ],
     "projects": [

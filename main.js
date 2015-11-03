@@ -1,4 +1,3 @@
-'use strict'
 import {parse} from 'url';
 import $ from 'jquery';
 
@@ -115,6 +114,14 @@ let skillsIndex = {
 	electron : {
 		group : groups.tools,
 		name : "Electron"
+	},
+	react : {
+		group: groups.frontend,
+		name : "React"
+	},
+	rethinkdb : {
+		group : groups.backend,
+		name : "RethinkDB"
 	}
 };
 
