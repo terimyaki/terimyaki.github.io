@@ -1,133 +1,11 @@
+'use strict';
 import {parse} from 'url';
 import $ from 'jquery';
-
-let groups = {
-	language : 'language',
-	frontend : 'frontend',
-	backend : 'backend',
-	build : 'build',
-	testing : 'testing',
-	tools : 'tools'
-};
-
-let skillsIndex = {
-	javascript : {
-		group : groups.language,
-		name : 'Javascript'
-	},
-	angular : {
-		group : groups.frontend,
-		name : 'Angular'
-	},
-	jquery : {
-		group : groups.frontend,
-		name : 'JQuery'
-	},
-	canvas : {
-		group : groups.frontend,
-		name : 'Html5 Canvas'
-	},
-	node : {
-		group : groups.backend,
-		name : 'Node'
-	},
-	express : {
-		group : groups.backend,
-		name : 'Express'
-	},
-	mongo : {
-		group : groups.backend,
-		name : 'MongoDB'
-	},
-	mongoose : {
-		group : groups.backend,
-		name : 'Mongoose'
-	},
-	firebase : {
-		group : groups.backend,
-		name : 'Firebase'
-	},
-	jasmine : {
-		group : groups.testing,
-		name : 'Jasmine'
-	},
-	karma : {
-		group : groups.testing,
-		name : 'Karma'
-	},
-	mocha : {
-		group : groups.testing,
-		name : 'Mocha'
-	},
-	gulp : {
-		group : groups.build,
-		name : 'Gulp'
-	},
-	sass : {
-		group : groups.build,
-		name : 'Sass'
-	},
-	grunt : {
-		group : groups.build,
-		name : 'Grunt'
-	},
-	webpack : {
-		group : groups.build,
-		name : 'Webpack'
-	},
-	ionic : {
-		group : groups.tools,
-		name : 'Ionic'
-	},
-	extension : {
-		group : groups.tools,
-		name : 'Chrome Extension'
-	},
-	socket : {
-		group : groups.frontend,
-		name : 'Socket.Io'
-	},
-	tessel : {
-		group : groups.tools,
-		name : 'Tessel'
-	},
-	cheerio : {
-		group : groups.tools,
-		name : "Cheerio"
-	},
-	tone : {
-		group : groups.tools,
-		name : "ToneJs"
-	},
-	googlemaps : {
-		group : groups.tools,
-		name : "Google Maps"
-	},
-	arduino : {
-		group : groups.tools,
-		name : "Arduino/Johnny-Five"
-	},
-	d3 : {
-		group : groups.frontend,
-		name : "D3"
-	},
-	electron : {
-		group : groups.tools,
-		name : "Electron"
-	},
-	react : {
-		group: groups.frontend,
-		name : "React"
-	},
-	rethinkdb : {
-		group : groups.backend,
-		name : "RethinkDB"
-	}
-};
+import { groups, skills as skillsIndex } from './dictionary';
 
 $(document).ready(function(){
 	$.getJSON('data.json', function(data){
-		let profile = new Layout(data);
+		const profile = new Layout(data);
 		profile.render();
 	});
 });
@@ -247,17 +125,19 @@ function buildSkills(node, skills){
 							.addClass('type')
 							.text(info.name.toUpperCase());
 		let listing = $(document.createElement('div')).addClass('list');
-		info.list.forEach(function(skill){
-			let entry = $(document.createElement('div')).addClass('entry');
-			let name = $(document.createElement('span')).addClass('name').text(skill.name);
-			let rating = $(document.createElement('span')).addClass('rating');
-			for(let i = 0; i < skill.rating; i++){
-				rating.append($(document.createElement('i')).addClass(icons.circle)).addClass('mdl-button--accent');
-			}
-			entry.append(name)
-				.append(rating);
-			listing.append(entry);
-		});
+		info.list
+			.sort((a, b) => a.rating <= b.rating)
+			.forEach(function(skill){
+				let entry = $(document.createElement('div')).addClass('entry');
+				let name = $(document.createElement('span')).addClass('name').text(skill.name);
+				let rating = $(document.createElement('span')).addClass('rating');
+				for(let i = 0; i < skill.rating; i++){
+					rating.append($(document.createElement('i')).addClass(icons.circle)).addClass('mdl-button--accent');
+				}
+				entry.append(name)
+					.append(rating);
+				listing.append(entry);
+			});
 		container.append(title)
 				.append(listing);
 		return container;

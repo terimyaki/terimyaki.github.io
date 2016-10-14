@@ -5,6 +5,14 @@
             "rating": 4
         },
         {
+            "name" : "react",
+            "rating" : 4
+        },
+        {
+            "name" : "redux",
+            "rating" : 4
+        },
+        {
             "name" : "angular",
             "rating" : 4
         },
@@ -32,6 +40,11 @@
             "name" : "mongoose",
             "rating" : 4
         },
+        
+        {
+            "name" : "sinon",
+            "rating" : 4
+        },
         {
             "name" : "firebase",
             "rating" : 3
@@ -46,7 +59,11 @@
         },
         {
             "name" : "mocha",
-            "rating" : 3
+            "rating" : 4
+        },
+        {
+            "name" : "chai",
+            "rating" : 4
         },
         {
             "name" : "gulp",
@@ -66,7 +83,7 @@
         },
         {
             "name" : "extension",
-            "rating" : 3
+            "rating" : 2
         },
         {
             "name" : "socket",
@@ -93,15 +110,47 @@
             "rating" : 2
         },
         {
-            "name" : "rethinkdb",
+            "name" : "react native",
+            "rating" : 3
+        },
+        {
+            "name" : "docker",
+            "rating" : 3
+        },
+        {
+            "name" : "less",
+            "rating" : 3
+        },
+        {
+            "name" : "elixir",
             "rating" : 1
         },
         {
-            "name" : "react",
-            "rating" : 1
+            "name" : "artik",
+            "rating" : 3
+        },
+        {
+            "name" : "linux",
+            "rating" : 3
         }
     ],
     "projects": [
+        {
+            "name" : "EDDI",
+            "image" : "https://avatars0.githubusercontent.com/u/15682924?v=3&s=300",
+            "date" : "August 2015",
+            "link" : "https://github.com/water-alchemists",
+            "description" : "Grand Prize Winner for Samsung Makers Against Drought Hackathon. For a year, my team and I worked on a solution for the soil leeching problem that farmers face. To help regulate the salinity of their water resources, we built a desalinator with a mobile app interface.",
+            "tech" : [
+                "react",
+                "redux",
+                "docker",
+                "artik",
+                "firebase",
+                "node",
+                "canvas"
+            ]
+        },
         {
             "name" : "Measure My Resist",
             "image" : "images/mmr.png",
@@ -119,7 +168,7 @@
             "name" : "StrollWith.me",
             "image": "images/logo_stroll.png",
             "date": "June 2015",
-            "link": "http://strollwith.me/",
+            "link": "https://github.com/ksliao/strollwith.me",
             "description": "Made during Angelhack, a platform to share slices of life through audio and marketplace to exchange audio tours.",
             "tech": [
                 "googlemaps",
@@ -170,7 +219,7 @@
         "github": "www.github.com/terimyaki",
         "linkedin": "www.linkedin.com/in/codechef",
         "email": "tonyli42w@gmail.com",
-        "phone": "518-712-9466"
+        "phone": "503-610-3219"
     },
     "info": {
         "name": "Tony Li",
